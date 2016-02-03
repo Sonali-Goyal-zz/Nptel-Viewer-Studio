@@ -1,7 +1,6 @@
-<?php
 <html>
     <head>
-        
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script type="text/javascript">
        function hel()
         {
@@ -14,6 +13,25 @@ video.currentTime=10;
 var input = document.getElementById("anno").text;
 var video = document.getElementById("h");
 video.currentTime=10;
+var jsonObject = {
+        "annotate" : "",
+        "time" : ""
+    };
+
+    // write cities to JSON Object
+    jsonObject.annotate=STring(input);
+    // write routes to JSON Object
+    jsonObject.time=video.currentTime;
+
+    // some jQuery to write to file
+    $.ajax({
+        type : "POST",
+        url : "json.php",
+        dataType : 'json',
+        data : {
+            json : JSON.stringify(jsonObject)
+        }
+    });
 
 }
 $(".timeline-item").hover(function () {
@@ -69,4 +87,4 @@ $(".timeline-item").hover(function () {
 </div>
     </body>
 </html>
-?>
+
