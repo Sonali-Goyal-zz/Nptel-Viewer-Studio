@@ -19,7 +19,7 @@ var jsonObject = {
     };
 
     // write cities to JSON Object
-    jsonObject.annotate=STring(input);
+    jsonObject.annotate=String(input);
     // write routes to JSON Object
     jsonObject.time=video.currentTime;
 
