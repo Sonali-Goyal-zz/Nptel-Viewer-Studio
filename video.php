@@ -18,16 +18,16 @@ document.getElementById("anno").style.visibility = 'visible';
  function publish()
         {
 var input = document.getElementById("anno").value;
-var video = document.getElementById("h");
-var jsonObject = {
+var video = videojs('h');
+var jsonObject =[{ 
         "annotate" : "",
         "time" : ""
-    };
+    }];
 
     // write cities to JSON Object
-    jsonObject.annotate=String(input);
+    jsonObject[0].annotate=String(input);
     // write routes to JSON Object
-    jsonObject.time=video.currentTime;
+    jsonObject[0].time=video.currentTime();
 
     // some jQuery to write to file
     $.ajax({
@@ -39,13 +39,13 @@ var jsonObject = {
         }
     });
 $.getJSON("new_map_data.json", function( data ) {
-  var items = [];
-  $.each( data, function( key, val ) {
-    items.push(val);
-  });
-alert(items);
+    // Set the variables from the results array
+    var address = data[0].annotate;
+document.getElementById("info1").innerHTML=address;
+document.getElementById("year1").innerHTML=data[0].time;
 });
-document.getElementById("h").play();
+var myPlayer = videojs('h');
+myPlayer.play();
 }
 
 
@@ -62,11 +62,11 @@ $(".timeline-item").hover(function () {
 
 
 <video id="h" width="640" height="480" class="video-js vjs-default-skin" align="middle" data-setup='{"controls":true}'>
-      <source src="AI_lecture2.mp4" type="video/mp4"/>
+      <source src="video.mp4" type="video/mp4"/>
       <track id="enTrack" src="subtitles/Eng.srt" label="English" kind="captions" srclang="en" default/> 
-      <track id="enTrack" src="subtitles/Hindi.srt" label="Hindi" kind="captions" srclang="hi" /> 
-      <track id="enTrack" src="subtitles/Telugu.srt" label="Telugu" kind="captions" srclang="te" /> 
-      <track id="enTrack" src="subtitles/Tamil.srt" label="Tamil" kind="captions" srclang="ta" /> 
+      <track id="etTrack" src="subtitles/Hindi.srt" label="Hindi" kind="captions" srclang="hi" /> 
+      <track id="euTrack" src="subtitles/Telugu.srt" label="Telugu" kind="captions" srclang="te" /> 
+      <track id="ejTrack" src="subtitles/Tamil.srt" label="Tamil" kind="captions" srclang="ta" /> 
       <track id="esTrack" src="hindi.vtt" label="Spanish" kind="captions" srclang="es"/>
       HTML5 video not supported
 </video>
@@ -78,31 +78,31 @@ $(".timeline-item").hover(function () {
        
         <div class="timeline">
         
-    <div class="timeline-item active">
+   <div class="timeline-item active">
     
-        <div class="year">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
+        <div class="year" id="year1">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
         </div>
-        <div class="info">VC Dimension theory</div>
+        <div class="info" id="info1">VC Dimension theory</div>
     </div>
     <div class="timeline-item">
-         <div class="year">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
+         <div class="year" id="year2">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
         </div>
-        <div class="info">VC Dimension theory</div>
+        <div class="info" id="info1">VC Dimension theory</div>
     </div>
       <div class="timeline-item">
-         <div class="year">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
+         <div class="year" id="year3">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
         </div>
-        <div class="info">VC Dimension theory</div>
+        <div class="info" id="info1">VC Dimension theory</div>
     </div>
       <div class="timeline-item">
-         <div class="year">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
+         <div class="year" id="year4">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
         </div>
-        <div class="info">VC Dimension theory</div>
+        <div class="info" id="info1">VC Dimension theory</div>
     </div>
       <div class="timeline-item">
-         <div class="year">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
+         <div class="year" id="year5">10 secs <span class="marker"><span class="dot" onclick="hel()"></span></span>
         </div>
-        <div class="info">VC Dimension theory</div>
+        <div class="info" id="info1">VC Dimension theory</div>
     </div>
 </div>
     </body>
