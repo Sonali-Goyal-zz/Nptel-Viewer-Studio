@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<br>
+	<h1>NPTEL Studio Viewer</h1>
+	<br>
+
  <link href="//vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">
     <script src="//vjs.zencdn.net/4.1/video.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
        function hel()
         {
 var myPlayer = videojs('h');
@@ -57,16 +61,19 @@ $(".timeline-item").hover(function () {
     <body>
 
 
-<video id="h" width="640" height="480" class="video-js vjs-default-skin"  data-setup='{"controls":true}'>
-  <source src="video.mp4" type="video/mp4"/>
- <track id="enTrack" src="subtitles.vtt" label="English" kind="captions" srclang="en" default/> 
+<video id="h" width="640" height="480" class="video-js vjs-default-skin" align="middle" data-setup='{"controls":true}'>
+      <source src="AI_lecture2.mp4" type="video/mp4"/>
+      <track id="enTrack" src="subtitles/Eng.srt" label="English" kind="captions" srclang="en" default/> 
+      <track id="enTrack" src="subtitles/Hindi.srt" label="Hindi" kind="captions" srclang="hi" /> 
+      <track id="enTrack" src="subtitles/Telugu.srt" label="Telugu" kind="captions" srclang="te" /> 
+      <track id="enTrack" src="subtitles/Tamil.srt" label="Tamil" kind="captions" srclang="ta" /> 
       <track id="esTrack" src="hindi.vtt" label="Spanish" kind="captions" srclang="es"/>
       HTML5 video not supported
 </video>
    
 <br/>
         <button value="submit" onclick="hel()">SUBMIT</button>
-<input id="anno" type="text" name="annotate" value="annotate" style="visibility:hidden"/>
+<input id="anno" type="text" name="annotate" value="add text here" style="visibility:hidden"/>
 <button value="submit" onclick="publish()">Publish</button>
        
         <div class="timeline">
